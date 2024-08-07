@@ -16,10 +16,14 @@ public class DemoMathOperation{
 
     // Special operator -> %
     int remainder = 5% 2;
-    System.out.println(remainder);//1
+    System.out.println(remainder);//1, 5有2份2, 5-2-2 餘1
 
     int remainder2 = 10 % 2;
-    System.out.println(remainder2);//0
+    System.out.println(remainder2);//0, 岩岩好5份2, 用曬10, 餘0
+
+    // Try Myself
+    double remainder3 = 5 % 3.5;
+    System.out.println(remainder3);//1.5, as 係5當中扣起1份3.5, 餘1.5
 
     System.out.println(0/10); // 0
     // System.oyt.println(10 / 0);

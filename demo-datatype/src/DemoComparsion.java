@@ -25,7 +25,7 @@ public class DemoComparsion {
     int j1 = 10;
     int j2 =12;
     System.out.println(j1 > j2);// false
-    // And"&"" / Or"||"
+    // And"&&" / Or"||"
     System.out.println(j1 > j2 || j1 <11);// false || true -> true : or||是旦1件事都true
     System.out.println(j1 > j2 && j1 < 11);//false && true -> false : and 要2件事都OK先得
 
