@@ -157,21 +157,33 @@ public class Demolf {
     // >= 500.0 -> 20% off
     // >= 200.0 -> 10% off
     // < 200.0 -> no discount
-    double discount;
-    double amounToPay;
+    double discount = totalPurchase;
+    if ( totalPurchase >= 500){
+      System.out.println("Discount Amount= " + totalPurchase * 0.8);
+    }else if ( totalPurchase >=200 && totalPurchase <500){
+    System.out.println("Discount amount= " + totalPurchase * 0.9);
+    }else {
+      System.out.println(totalPurchase);
+    }
+    //double amounToPay = totalPurchase - discount;   ?????not yet finish
+    //System.out.println("Amount to Pay= " + amountToPay);     ????not yet finish
 
     //System.out.println("Discount amount= " + discount);
     //System.out.println("Amount to Pay= " + amounToPay);
 
 
     //Example 11
-    char c = 'a';
+    char c = 'c';
     //a e i o u -> vowel
     //Sample Output:
     // a is vowel.
     // c is consonant.
 
-    //if ( c == a || c == e || c == i || c ==o || c ==u);{
+    if ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+      System.out.println( c + " is vowel.");
+    }else {
+      System.out.println( c + " is consonant.");
+    }
 
     //Example 12 (Using .contains())
     String password = "Admin1234567#";
@@ -182,9 +194,9 @@ public class Demolf {
     // It is a strong password.
     // It is a weak password. No special character.
     // It is a weak password. Length < 12.
-    if (password.length() >=12 && password.contains("#") || password.contains("!") ||password.contains("@")|| password.contains("$"));{
+    if (password.length() >=12 && password.contains("#") || password.contains("!") ||password.contains("@")|| password.contains("$")){
       System.out.println("It is a strong password.");
-    }else if (password.length() <12 && password.contains("#") || password.contains("!") || password.contains("@")|| password.contains("$"));{
+    }else if (password.length() <12 && password.contains("#") || password.contains("!") || password.contains("@")|| password.contains("$")){
       System.out.println("It is a weak password. Length < 12.");
     }else {
       System.out.println("It is a weak password. No special character.");
@@ -202,8 +214,6 @@ public class Demolf {
     System.out.println(s1.contains("ll"));//true
     s1 = "Nicola Sin";
     System.out.println(s1.contains("cola"));
-
-
   }
 
 }
