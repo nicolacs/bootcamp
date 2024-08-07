@@ -16,7 +16,194 @@ public class Demolf {
       System.out.println("x < 30");
     }
 
-    // 8 primitives, String (equals())
+    // 8 primitives, String (equals(), charAt(), length())
+
+    // Example 1
+    //1. Else-if  !!need to avoid event overlap!!
+    int number = -3;
+    if (number >= 0){
+      System.out.println("The number is positive");
+    }else if (number < 0){
+      System.out.println("The number is negative");
+    }else {
+      System.out.println("The number is zero");
+    }
+    //"The number is positive"
+    //"The nmber is negative"
+
+    //Example 2  (Avoid overlap)
+    int score = 85;
+    if (score >= 90){
+      System.out.println("A");
+    }else if (score >= 80 && score < 90){
+      System.out.println("B");
+    }else {
+      System.out.println("F");
+    }
+
+    // Example 3
+    int a =10;
+    int b =20;
+    // "20 is larger than 10."
+
+    int max;//declaration
+    int min;
+    if (a > b){
+      max = a;
+      min = b;
+    }else{
+      max = b;
+      min = a;
+    }
+    System.out.println(max + " is larger than " + min + ".");
+
+
+    //if (a <= 10 && b >=20){///wrong
+      //System.out.println("20 is larger than 10.");///wrong
+    //}else {///wrong
+      //System.out.println("Wrong");///wrong
+    //}
+
+    //Example 4
+    String day = "Wednesday";
+
+    // "Sunday is weekend."
+    // "Saturday is weekend."
+
+    //Try Myself
+    if ("Sunday". equals(day) || "Saturday". equals(day) ) {
+      System.out.println( day + "is weekend");
+    } else {
+      System.out.println( day + " is weekday");
+    }
+
+    // Example 4 approach 2
+    if ("Wednesday". equals (day) || "Monday". equals (day) || "Tuesday". equals(day) || "Thursday". equals(day) || "Friday". equals(day)){
+      System.out.println( day + " is weekday.");
+    }else {
+      System.out.println( day + " is weekend");
+    }
+
+    //Example 5
+    int num =11;
+    // 7 is an odd number.
+    // 8 is an even number.
+    if (num % 2 > 0){ //Vincent's ans if (num % 2 ==1){
+      System.out.println(num + " is an odd number.");
+    }else {
+      System.out.println(num + " is an even number.");
+    }
+
+    //Example 6
+    String str = "helloABCDEFGHIJK";
+    // Sample output:
+    // The last character of str is o
+    // This is an empty String
+    int V = str.length() - 1;
+
+    if (V <=0){
+      System.out.println("This is an empty String" );
+    }else {
+      System.out.println("The last character of str is " + str.charAt(V) );
+    }
+
+    //Example 6 Vincent's approach:
+    
+
+    //Example 7
+    String S = "abc";
+    System.out.println("" + S.charAt(2) + S.charAt(1) + S.charAt(0));
+
+    // Example 8
+    // Leap Year
+    // 1. Divided by 4
+    // 2. Not Divided by 100
+    // 3. Or Divided by 400
+
+    int year = 1900;
+    //Sample output
+    //1900 is not a leap year.
+    //2000 is a leap year.
+    //2004 is a leap year.
+
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0 ){
+      System.out.println( year + " is a leap year.");
+    }else {
+      System.out.println( year + " is not a leap year.");
+    }
+
+    //Example 9
+    int age = 17;
+    boolean isCitizen = false;
+    // age 18 or above and he is a citizen -> eligible to vote.
+    // Sample Output
+    // Eligible to vote.
+    // Not eligible. Age < 18.
+    // Not eligible. Not a citizen.
+    // Not eligible. Age < 18 and not a citizen.
+
+    if ( age >=18 && isCitizen == true){
+      System.out.println(" Eligible to vote.");
+    }else if ( age < 18 && isCitizen == true){
+      System.out.println("Not eligible. Age < 18.");
+    }else if ( age >= 18 && isCitizen == false){
+      System.out.println("Not eligible. Not a citizen.");
+    }else {
+      System.out.println("Not eligible. Age < 18 and not a citizen.");
+    }
+
+    //Example 10
+    double totalPurchase = 250.0;
+    // >= 500.0 -> 20% off
+    // >= 200.0 -> 10% off
+    // < 200.0 -> no discount
+    double discount;
+    double amounToPay;
+
+    //System.out.println("Discount amount= " + discount);
+    //System.out.println("Amount to Pay= " + amounToPay);
+
+
+    //Example 11
+    char c = 'a';
+    //a e i o u -> vowel
+    //Sample Output:
+    // a is vowel.
+    // c is consonant.
+
+    //if ( c == a || c == e || c == i || c ==o || c ==u);{
+
+    //Example 12 (Using .contains())
+    String password = "Admin1234567#";
+    // Strong password definition:
+    // # ! @ $ -> special character
+    // password length >= 12
+
+    // It is a strong password.
+    // It is a weak password. No special character.
+    // It is a weak password. Length < 12.
+    if (password.length() >=12 && password.contains("#") || password.contains("!") ||password.contains("@")|| password.contains("$"));{
+      System.out.println("It is a strong password.");
+    }else if (password.length() <12 && password.contains("#") || password.contains("!") || password.contains("@")|| password.contains("$"));{
+      System.out.println("It is a weak password. Length < 12.");
+    }else {
+      System.out.println("It is a weak password. No special character.");
+    }
+
+
+
+
+    //////////////////////////Teaching//////////////////////////
+
+    String s1 = "hello";
+    System.out.println(s1.contains("ll"));//true
+    System.out.println(s1.contains("lll"));//false
+    s1 = "helloll";
+    System.out.println(s1.contains("ll"));//true
+    s1 = "Nicola Sin";
+    System.out.println(s1.contains("cola"));
+
+
   }
-  
+
 }
