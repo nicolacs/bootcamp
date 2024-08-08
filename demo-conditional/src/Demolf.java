@@ -112,7 +112,7 @@ public class Demolf {
 
     //Example 7
     String S = "abc";
-    System.out.println("" + S.charAt(2) + S.charAt(1) + S.charAt(0));
+    System.out.println("" + S.charAt(2) + S.charAt(1) + S.charAt(0)); //Correct
 
     // Example 8
     // Leap Year
@@ -120,16 +120,31 @@ public class Demolf {
     // 2. Not Divided by 100
     // 3. Or Divided by 400
 
-    int year = 1900;
+    int year = 2003;
     //Sample output
     //1900 is not a leap year.
     //2000 is a leap year.
     //2004 is a leap year.
 
-    if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0 ){
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0 ){ // Correct
       System.out.println( year + " is a leap year.");
     }else {
       System.out.println( year + " is not a leap year.");
+    }
+
+    //Example 8's Vincent's ans for sample output 2003 is not a leap year.
+    int year1 = 1990;
+    boolean isLeapYear = (year % 4 == 0 && year % 100 != 0 || year % 400 ==0);
+    boolean isLeap = false;
+    if (year % 4 ==0){ //2004
+      if (year % 100 == 0){
+        if (year % 400 ==0){
+          isLeap = true;
+        } else {
+          isLeap = false;
+
+        }
+      }
     }
 
     //Example 9
@@ -168,8 +183,17 @@ public class Demolf {
     //double amounToPay = totalPurchase - discount;   ?????not yet finish
     //System.out.println("Amount to Pay= " + amountToPay);     ????not yet finish
 
-    //System.out.println("Discount amount= " + discount);
-    //System.out.println("Amount to Pay= " + amounToPay);
+    //Vincent's output
+    double discount1 = 0.0d;
+    if (totalPurchase >= 500.0){  // Correct, same
+      discount1 = totalPurchase *0.8;
+    }else if (totalPurchase >= 200.0 && totalPurchase < 500.0){ // Correct, same
+      discount1 = totalPurchase * 0.9;
+    }
+    double amountToPay1 = totalPurchase - discount1;
+
+    System.out.println("Discount amount= " + discount1);
+    System.out.println("Amount to Pay= " + amountToPay1);
 
 
     //Example 11
@@ -179,10 +203,10 @@ public class Demolf {
     // a is vowel.
     // c is consonant.
 
-    if ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-      System.out.println( c + " is vowel.");
+    if ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){ //Correct, same
+      System.out.println( c + " is vowel.");  //Correct, same
     }else {
-      System.out.println( c + " is consonant.");
+      System.out.println( c + " is consonant.");  //Correct, same
     }
 
     //Example 12 (Using .contains())
@@ -201,19 +225,41 @@ public class Demolf {
     }else {
       System.out.println("It is a weak password. No special character.");
     }
+        //Vincent's output1
+        String password1 = "Admin1237#";
+        if (password1.length() >= 12)
+          if (password1.contains("#") || password1.contains("!") ||password.contains("@")|| password.contains("$")){
+          System.out.println("It is a strong password.");
+          } else {
+          System.out.println("It is a weak password. No special character.");
 
+        } else {
+          System.out.println("It is a weak password. Length < 12.");
+        }
+      }
 
+     // Vincent's output2
+    boolean withoutSpecialCharacter = false 
+    if (password.length()>=12)
+          withoutSpecialCharacter = !password.contains("#")// !password.contains("#") 同 password.contains("#") == false
+            && !password.contains("!")
+            && !password.contains("@")
+            && !password.contains("$")
+        if (!withoutSpecialCharacter){
+          System.out.println("It is a strong password.");
+        } else {
+          System.out.println("It is a weak password. No special character.");
+        } else {
+          System.out.println("It is a weak password. Length < 12.");
+        }
+        }
 
+  ////////////////////////// Teaching//////////////////////////
 
-    //////////////////////////Teaching//////////////////////////
-
-    String s1 = "hello";
-    System.out.println(s1.contains("ll"));//true
-    System.out.println(s1.contains("lll"));//false
-    s1 = "helloll";
-    System.out.println(s1.contains("ll"));//true
-    s1 = "Nicola Sin";
-    System.out.println(s1.contains("cola"));
-  }
+  String s1 = "hello";System.out.println(s1.contains("ll"));// true
+  System.out.println(s1.contains("lll"));// false
+  s1="helloll";System.out.println(s1.contains("ll"));// true
+  s1="Nicola Sin";System.out.println(s1.contains("cola"));
+}
 
 }
