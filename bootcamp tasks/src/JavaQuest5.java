@@ -9,20 +9,30 @@ public class JavaQuest5 {
 
     // if not found, print "Not Found."
     // code here ...
-     
-      int count =0;
-      for ( int i=0 ; i<str.length() ; i++)
-       if (str.charAt(i) == target){
+    int count = 0;
+    for (int i = str.length()-1 ; i > -1 ; i--){
+        if (str.charAt(i) == target){
+        count = i;
         System.out.println("The index of the last character of " + target + " is " + count);
-       }else {
-        System.out.println("Not Found.");
-       }
+        break;
+      }else{
+  }System.out.println("Not Found.");
 
-    System.out.println(str.indexOf(target)); //有2個, how to get last one
+
+
+      //int count =0;
+      //for ( int i=0 ; i<str.length() ; i++)
+       //if (str.indexOf(target) == target){
+        //System.out.println("The index of the last character of " + target + " is " + count);
+       //}else {
+        //System.out.println("Not Found.");
+       //}
+       //System.out.println(str.indexOf(target)); //有2個, how to get last one
+
     //System.out.println("The index of the last character of " + target + " is " + count);
 
 
 
 
   }
-}
+}}

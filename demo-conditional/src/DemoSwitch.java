@@ -1,6 +1,6 @@
 public class DemoSwitch {
   public static void main(String[] args) {
-    int age = 18;
+    int age = 28;
     boolean isAdult = false;
     if (age >= 18){
       isAdult = true;

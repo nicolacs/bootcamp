@@ -1,18 +1,32 @@
-## Getting Started
+First week 240805-240809
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+>>>>>8 Primitives --Higher/Lower lv type
+//--Math Operations  > , < , >= , <= 
+//--Comparsion Operators, &&, ||, ==, !=
+//>>>>>String --equals(), length(), charAt()
+    String str = "abcdef";
+    System.out.println(String str.length(3));
 
-## Folder Structure
+//If - else,  switch
+    String day = "Tuesday";
+    switch (day){
+      case "Monday":
+        System.out.println("It is weekday");
+      break;
+      case "Tuesday":
+        System.out.println("It is weekday");
+      break;}
 
-The workspace contains two folders by default, where:
+//--Scanner
+    double currentBalance = 300.0;
+    Scanner b = new Scanner(System.in);
+    System.out.println("Choose an option: 1) Deposit 2) Withdraw 3) Check Balance");
+    int option = b.nextInt(); 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+//--Loop
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+//--array
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+// 0 = 48 in ASCII Codes
+// A = 65
+// a = 97

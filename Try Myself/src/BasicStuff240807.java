@@ -7,7 +7,7 @@ public class BasicStuff240807 {
 //>>>>>String
 //--Operator
 //--equals(), length(), charAt()
-//>>>>>If - else
+//>>>>>If - else,  
 
     int ProductA = 100;
     int ProductB = 160;

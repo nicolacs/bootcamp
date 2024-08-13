@@ -59,9 +59,10 @@ public class DemoString {
 
     boolean isValueSame = "abc".equals(s20);// false as asking is abc equal to hello, of couse not.
 
+    System.out.println("~~~~chatAt()~~~~");
     // charAt()
     char result = s10.charAt(1);// 2nd char of String value
-    System.out.println(result);// 'e' in s10 "hello",his 0, e is 1, l is 2...
+    System.out.println(result);// 'e' in s10 "hello",h is 0, e is 1, l is 2...
     System.out.println(s10.charAt(0));// h, as h is no.0 char
     // there are no -1 or negative to find out something, will be error 404
     // In case, s10 "hello" only have 0,1,2,3,4 total 5 index, if out of range, also runtime error

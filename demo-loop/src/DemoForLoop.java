@@ -25,6 +25,7 @@ public class DemoForLoop {
       // Step 11: i < 3 -> false //冇qouta load lu
       // Step 12: Exit the loop
 
+
       //Example 1
       // Print 5 times Hello World
 
@@ -40,9 +41,9 @@ public class DemoForLoop {
 
       //Example 3
       // Print all odd numbers between 0 - 10
-      for (int i = 0 ; i < 11 ; i++){ // 0,1,2,3,4,5,6,7,8,9,10
+      for (int i = 0 ; i < 11 ; i++){ // 0,1,2,3,4,5,6,7,8,9,10 -> 11 times
         if (i % 2 == 1){
-          System.out.println(i);
+          System.out.println(i);  //lines 44&45 run 11 times // 1 3 5 7 9
         }
       }
 
@@ -65,10 +66,12 @@ public class DemoForLoop {
           System.out.println( 10 - i );
         }
 
+        System.out.println("----------Example 5 ---------");
       // Example 5
       //
       String str = "abcdefghijk" ; // the index of last character 'k' is length() -1
       // "acegik"
+      // Loop, charAt
       String str2 = "";
       for (int i =0 ; i < str.length() ; i++){  //Correct
         //if (str.charAt(str.length() % 2 == 1))  //wrong
@@ -78,34 +81,36 @@ public class DemoForLoop {
       }
         System.out.println(str2);
 
-      // Example 6
+      // Example 6 - counting
       String s2 = "bbaaaacceeeef";
       // 
       char target = 'e';
       int count = 0;
       // Output: The number of character e is 3
       for (int i = 0; i < s2.length() ; i++){ //Correct
-       if (s2.charAt(i) == target){
+       if (s2.charAt(i) == target){  // count 個條件出現幾多次
         count++;
        }
       }
       System.out.println("The number of character " + target + " is " + count );
 
 
-       // Example 7
+       // Example 7  - counting
        // 1-100
        // How many numbers can be divided by 3 or divided by 4?
        int num = 0;
        for (int i = 1 ; i < 101 ; i++){
         if (i % 3 == 0 || i % 4 == 0){
           num++;
-        }
+        }    //correct but vincent use int count only.
        }
        System.out.println("There are " + num + " numbers can be divided by 3 or divided by 4.");
 
        // Example 8
+       System.out.println("---------Example 8----------");
        // 1 - 50
-       // Find the total number, which sum up all odd number and subtract all even numbers between 1 - 50
+       // Find the total number, which sum up all odd number and subtract all even numbers 
+       //between 1 - 50
        int total = 0;
        for (int i = 1 ; i < 51 ; i++){
         if (i % 2 == 1){
@@ -121,7 +126,7 @@ public class DemoForLoop {
        // Print the index of j. If j is not found, print -1
        boolean found = false;
        int position = -1;
-       for (int i = 0 ; i < s3.length() ; i++){
+       for (int i = 0 ; i < s3.length() ; i++){  // >>>黎兩行係good 組合
         if (s3.charAt(i) == 'j'){
           found = true;
           position = i;
@@ -137,25 +142,32 @@ public class DemoForLoop {
        s3 = "abc";
        System.out.println(s3.indexOf('j'));
 
+       System.out.println("----------Example 10 ---------");
        // Example 10
        String s4 = "hello";
        //check if the last character is o -> true
        char targetEndWith = 'o';
-       System.out.println(s4.charAt(s4.length()-1) == targetEndWith);
+       System.out.println(s4.charAt(s4.length()-1) == targetEndWith);   // 基礎
 
        // **********Alternative**********endsWith("--") & startsWith("--") 搵最後, 最頭值
        System.out.println(s4.endsWith("o"));//true
        System.out.println(s4.startsWith("he"));//true
        System.out.println(s4.startsWith("eh"));//false
 
-
+      System.out.println("*********substring*********");
        // *********substring********* 搵中間既值
        String s5 = "abcdefghik";
        // Find "def"
        System.out.println(s5.contains("def"));//true
        // Find the index between 2 and 4
        System.out.println(s5.substring(0, 3));//cde , for substring last index is always -1. So, if you want to find index no.4, you entre 5
+       System.out.println(s5.indexOf("abc"));// 0
+       System.out.println(s5.substring(0, 3));///abc
 
+       System.out.println(s5.substring(s5.length() -1, s5.length()));//k, last character
+       System.out.println(s5.substring(0,1));// print first character a
+
+       System.out.println("----------Example 11 ---------");
       // Example 11
       String s6 = "abcdefghik";
       String subString = "def";
@@ -164,7 +176,7 @@ public class DemoForLoop {
       //output: Found or not found
       //for (int i = 0 ; i < s6.length() ; i++)     !!!!!!BOSS!!!!!!  Homework
 
-
+      System.out.println("----------Nested Loop ---------");
       // Nested Loop
       for (int i = 0; i<3 ; i++){// outer loop 0,1,2
         for (int j=0 ; j<2 ; j++){ // inner loop 0,1
@@ -179,16 +191,17 @@ public class DemoForLoop {
       //i= 2 , j= 1
 
       // Exampe 12
-      // break  =離開個logic 既意思
-      for (int i=0 ; i<0 ; i++){
+      // break  =離開個logic 既意思  >> Vincent suggest 寫最尾, contiune 寫最頭
+      // break 同 continue 都係做緊current loop only, let's say: 如要break曬2個nested loop, 要入面,出面都break1次
+      for (int i=0 ; i<5 ; i++){
         System.out.println("hello");
         if (i >=3){
           break;
         }
-      }
+      }   //print hello 0,1,2,3  ->4times
 
       // Example 13
-      // break - searching
+      // break - searching - how to use breck to find k
       String s7 = "ijkdef";
       found = false;
       for (int i =0 ; i < s7.length() ; i++){
@@ -197,6 +210,7 @@ public class DemoForLoop {
           break; // break the loop
         }
       }
+
 
       // Example 14
       // continue - skipsome patterns
@@ -219,22 +233,38 @@ public class DemoForLoop {
       }
       System.out.println("");
 
-
+       System.out.println("---------Example 16 - Nested Loop---------");
       // Example 16  try output:
-      // *****
-      // ****
+      // *****   -> i=0
+      // ****    -> i=1
       // ***
       // **
       // *
 
       // Nested Loop (i and j)
-      String o= "*";
-      for (int i=0 ; i < 5 ; i++){
-        for (int j=0 ; j< 5-i ; j++){
+      for (int i=0 ; i < 5 ; i++){ //control the number of rows
+        for (int j=0 ; j< 5-i ; j++){ // every row
           System.out.print("*");
         }
       System.out.println("");
-    }
+    }   // OK, same as Vincent
+    System.out.println("---------Example 17 - Nested Loop---------");
+    // Example 17  try output:
+     // ******
+     // ****
+     // **
+    for (int i=0 ; i < 6 ; i=i+2){
+      for (int j=0 ; j< 6-i ; j++){
+        System.out.print("*");
+      }
+    System.out.println("");
+  }
+
+    //infinity loop  錯誤的loop
+    // for ( ; ; ) {
+    // System.out.println("hello"); 會無限print
+    //}
+
 
 
 

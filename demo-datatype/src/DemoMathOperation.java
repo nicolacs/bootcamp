@@ -67,13 +67,20 @@ public class DemoMathOperation{
     a = a+1;
     a++;
     ++a;
-    System.out.println(a);// 5
+    System.out.println("Try" +a);// 4
 
     // + 2 operations
     int b =1;
     b = b +2;
     b +=2;
     System.out.println(b);// 5
+
+    System.out.println("My try in C");
+    int c = 1;
+    c = c+1;
+    c++;
+    ++c;
+    System.out.println(c);
 
     // -1 operations
     a = a -1;
