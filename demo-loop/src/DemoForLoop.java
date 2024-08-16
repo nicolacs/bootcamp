@@ -263,8 +263,21 @@ public class DemoForLoop {
     //infinity loop  錯誤的loop
     // for ( ; ; ) {
     // System.out.println("hello"); 會無限print
-    //}
 
+
+
+
+     System.out.println("~~~~~~~ Challenge in Note - Loop~~~~~~~");
+     // use my method not the note's answer to get the same output
+     String searchMe = "peter piper";
+     int num5 =0;
+
+     for (int i =0 ; i< searchMe.length() ; i++){
+      if (searchMe.charAt(i) == 'p' ){    //correct, same
+        num5++;   //correct, same
+      }
+     }
+     System.out.println("I can found " + num5 + " p in searchMe"); //ok, get the same answer in note
 
 
 

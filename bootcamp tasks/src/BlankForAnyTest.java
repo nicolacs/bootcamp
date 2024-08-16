@@ -8,22 +8,6 @@ public class BlankForAnyTest {
     x =  x + 5;
     System.out.println(x);
 
-    String s3 = "abcjdsadhnj";
-    System.out.println(s3.indexOf("j"));
-
-
-     //Challenge in Note - Loop
-     // use my method not the note's answer to get the same output
-     String searchMe = "peter piper";
-     int num =0;
-
-     for (int i =0 ; i< searchMe.length() ; i++){
-      if (searchMe.charAt(i) == 'p' ){    //correct, same
-        num++;   //correct, same
-      }
-     }
-     System.out.println("I can found " + num + " p in searchMe"); //ok, get the same answer in note
-
         // LeetCode No. 711 
         //solve case 2
         //int output =0;
@@ -50,9 +34,13 @@ public class BlankForAnyTest {
       for (int i = 0 ; i < nums.length ; i++){
       if (nums[i] == 1){
       count ++;
-    } else (count > max){
-          max = count;}
+    } else {
+      if (count > max);{
+          max = count;
+        }
+        count = 0;
       }
+    }
       System.out.println(max);
   }
 }

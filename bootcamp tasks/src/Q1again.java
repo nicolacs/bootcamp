@@ -1,7 +1,7 @@
 //package questions;
 /**
  * Expected Output:
- * 
+ * Finished time , 240812  5min
  * I am going to add two numbers together:
  * The first one: 31
  * The second one: 42

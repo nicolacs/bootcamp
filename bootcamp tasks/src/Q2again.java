@@ -1,6 +1,6 @@
 /**
  * Expected Output:
- * 
+ * Finished time , 240813 5mins to solve
  * a > 9
  * str length < 27
  * 2020 is a leap year.
@@ -23,11 +23,11 @@ public class Q2again {
     }
 
     String str = "I love Java. I love coding";
-    if () {
+    if (str.length() == 27) {
       System.out.println("str length=27");
-    } else if () { // code here ... add the condition
+    } else if (str.length() < 27) { // code here ... add the condition
       System.out.println("str length < 27");
-    } else if () { // code here ... complete the code
+    } else if (str.length()> 27) { // code here ... complete the code
       System.out.println("str length > 27");
     }
   }

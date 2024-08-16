@@ -334,13 +334,13 @@ public class DemoArray {
     // value -> index
     int[] counts =new int [10]; // 0-9
     for (int i =0 ; i< arr20.length; i++ ){
-      counts[arr20[i]]++; // why same num will +1 here?
+      counts[arr20[i]]++; // why same num will +1 here?, solved
     }
     int max2 = 0;
     int target = -1;
     for (int i=0; i <counts.length; i++){
       if (counts[i] >max2){
-        max2 = counts[i]; // 個counts[i] 已經被max2 覆蓋, 點解 target 會=i??
+        max2 = counts[i]; 
         target = i;
       }
     }
@@ -358,11 +358,62 @@ public class DemoArray {
     int targeta = -1;
     for (int i=0; i <countsa.length; i++){
       if (countsa[i] >max2a){
-        max2a = countsa[i]; // 個counts[i] 已經被max2 覆蓋, 點解 target 會=i??
+        max2a = countsa[i]; // 個counts[i] 已經被max2 覆蓋, 點解 target 會=i?? , solved
         targeta = i -10;
       }
     }
-    System.out.println("Max. Count's value= " + targeta);
+    System.out.println("Max. Count's value= " + targeta); // Max.Count's value ==99
+
+    // Arrays.copyof()
+    // Problem
+    // arr4 ->obj ref
+    // int array obj
+    int[] arr4 = new int[]{1,2,3};
+    arr4 = new int[] {2,3,4}; // 新OBJ {2,3,4} 已取代舊OBJ {1,2,3}
+
+    // We have 2 Obj Ref, but one Obj
+    //Example 1
+    int[] arr21 = new int[] {1,2,3};
+    int[] arr22 = arr21;   // Pass by Reference ,2套屋係指向同一套Obj
+    System.out.println(arr21[2]);//3
+    System.out.println(arr22[2]);//3
+
+    arr21[1] =100;
+    System.out.println(arr22[1]);//100 , arr21[1]改左, arr22係同一個obj, 所以 arr22 read既資料係一樣
+
+    ///Example 2
+    int x1 = 10;
+    int x4 = x1;  // Pass by value
+    System.out.println(x4); //10
+
+    x1 = 100;
+    System.out.println(x1);//100
+    System.out.println(x4);// 10
+
+    //Example 3
+    String s1 = "abc";
+    String s2 = s1; // Pass by value  設定係用value 取代入去, 而唔係用 obj(地址) 去取代入去
+    s1 = "def";
+    System.out.println(s1);// def
+    System.out.println(s2); // abc
+
+    // Conclusion
+    // 8 Priitives + 8 Wrapper Classes + String -> Pass by value (refer to Example 2 & 3)
+    // Other than that ->  Pass by reference (refer to Example 1)
+
+    // How to backup an array?
+    System.out.println("~~~~How to backup an array?~~~~");
+    // Array.copyOf()
+    // Heap Memory -> create another int array
+    int[] backupArray = Arrays.copyOf(arr21, arr21.length); // define the length of the new array
+    System.out.println(Arrays.toString(backupArray));
+
+    // Bubble sort / Insertion Sort (Nested Loop)
+    System.out.println("~~~~最快sorting code~~~~Arrays.sort(where)~~~~");
+    int[]beforeSort = new int[]{30,-3,100,-102};
+    Arrays.sort(beforeSort); // performance: nlogn   //俾左個地址(array.sort) 去屋企(beforeSort)執屋
+    Arrays.sort(beforeSort); // 黎句係直接用, 唔洗開variable 去裝住個修改版
+    System.out.println(Arrays.toString(beforeSort));
 
   }
 }

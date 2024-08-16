@@ -63,17 +63,50 @@ public class DemoCharInt {
       System.out.println(c4); // OK, but overflow
 
       //Overflow
-      byte b1 = (byte) 128;
+      byte b1 = (byte) 128;  // =127+1
       System.out.println(b1);// -128
       b1 = (byte) 129;
       System.out.println(b1);// -127
+      b1 = (byte) 383;
+      System.out.println(b1);// 127 . 如個數超過, +-128, 會不停轉
 
       int asset = (int) 2_200_000_000L;
       //overflow
       System.out.println(asset); // -2094967296
 
+      // double -> int (precision loss)
+      double d10 = 10.25;
+      int x5 = (int) d10;
+      System.out.println(x5); // 10.25 ->10
+      d10 = 10.99;
+      x5 = (int) d10;
+      System.out.println(x5);// 10.99 -> 10
 
+      // overflow + for loop (careless mistake)
+      //for (int i=0; i <2_200_000_000L; i++){
+        //System.out.println("hello");
+      
 
+     byte b20 = 7;
+     int i20 = 8;
+     boolean result = b20 <i20;//true
+     System.out.println("boolean result: " + result);
+
+      // byte b21 = 128; //compile error , cannot overflow;
+      int i21 = 128;
+      byte b22 = (byte) i21; // overflow
+
+      // 之前會用 -2_100_000_000, 宜家有黎個方法代替
+      int[] arr2 = new int[3];
+      max = Integer.MIN_VALUE; // instead of -2.1b
+      for (int i = 0 ; i <arr2.length ; i++){
+        if (arr2[i] > max){
+          max = arr2[i];
+        }
+      }
+
+      long l2 = Long.MIN_VALUE; //-9223372036854775808
+      System.out.println(l2); // 2^-63
 
 
   }
