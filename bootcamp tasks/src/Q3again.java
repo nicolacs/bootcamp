@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Q3again {
   //import java.util.Scanner;
     /**
@@ -61,9 +63,34 @@ public class Q3again {
           number_Of_DaysInMonth = 31;
           break;
          case 6:
-          monthOfName = "March";
+          monthOfName = "Juen";
+          number_Of_DaysInMonth = 30;
+          break;
+          case 7:
+          monthOfName = "July";
           number_Of_DaysInMonth = 31;
           break;
+          case 8:
+          monthOfName = "August";
+          number_Of_DaysInMonth = 31;
+          break;
+          case 9:
+          monthOfName = "September";
+          number_Of_DaysInMonth = 30;
+          break;
+          case 10:
+          monthOfName = "October";
+          number_Of_DaysInMonth = 31;
+          break;
+          case 11:
+          monthOfName = "November";
+          number_Of_DaysInMonth = 30;
+          break;
+          case 12:
+          monthOfName = "December";
+          number_Of_DaysInMonth = 31;
+          break;
+
 
       }
       System.out.println(

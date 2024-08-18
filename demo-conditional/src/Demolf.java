@@ -108,7 +108,13 @@ public class Demolf {
     }
 
     //Example 6 Vincent's approach:
-    
+    if (str.length() == 0) {
+      System.out.println("This is an empty string.");
+    } else {
+      System.out.println(
+          "The last character of str is " + str.charAt(str.length() - 1));
+    }
+
 
     //Example 7
     String S = "abc";
@@ -167,7 +173,7 @@ public class Demolf {
       System.out.println("Not eligible. Age < 18 and not a citizen.");
     }
 
-    //Example 10
+    //Example 10    //I found i'm wrong after revision, ok now 
     double totalPurchase = 250.0;
     // >= 500.0 -> 20% off
     // >= 200.0 -> 10% off
@@ -186,9 +192,9 @@ public class Demolf {
     //Vincent's output
     double discount1 = 0.0d;
     if (totalPurchase >= 500.0){  // Correct, same
-      discount1 = totalPurchase *0.8;
+      discount1 = totalPurchase *0.2;
     }else if (totalPurchase >= 200.0 && totalPurchase < 500.0){ // Correct, same
-      discount1 = totalPurchase * 0.9;
+      discount1 = totalPurchase * 0.1;
     }
     double amountToPay1 = totalPurchase - discount1;
 
@@ -236,30 +242,36 @@ public class Demolf {
         } else {
           System.out.println("It is a weak password. Length < 12.");
         }
-      }
+      
 
      // Vincent's output2
-    boolean withoutSpecialCharacter = false 
-    if (password.length()>=12)
-          withoutSpecialCharacter = !password.contains("#")// !password.contains("#") 同 password.contains("#") == false
-            && !password.contains("!")
-            && !password.contains("@")
-            && !password.contains("$")
-        if (!withoutSpecialCharacter){
-          System.out.println("It is a strong password.");
-        } else {
-          System.out.println("It is a weak password. No special character.");
-        } else {
-          System.out.println("It is a weak password. Length < 12.");
-        }
-        }
+     String password2 = "abc123456789@";
+     boolean withoutSpecialCharacter = false;{
+     if (password2.length() >= 12) {
+       withoutSpecialCharacter = !password2.contains("#") //
+           && !password2.contains("!") //
+           && !password2.contains("@") //
+           && !password2.contains("$");
+       if (!withoutSpecialCharacter) {
+         System.out.println("It is a strong password.");
+       } else {
+         System.out.println("It is a weak password. No speical character.");
+       }
+     } else { // < 12
+       System.out.println("It is a weak password. Length < 12.");
+     }
+    }
 
   ////////////////////////// Teaching//////////////////////////
 
-  String s1 = "hello";System.out.println(s1.contains("ll"));// true
+  String s1 = "hello";
+  System.out.println(s1.contains("ll"));// true
   System.out.println(s1.contains("lll"));// false
-  s1="helloll";System.out.println(s1.contains("ll"));// true
-  s1="Nicola Sin";System.out.println(s1.contains("cola"));
+  s1="helloll";
+  System.out.println(s1.contains("ll"));// true
+  s1="Nicola Sin";
+  System.out.println(s1.contains("cola"));
+}
 }
 
-}
+

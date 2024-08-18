@@ -30,16 +30,16 @@ public class DemoStaticMethod {
       System.out.println("Approach 3: " + totalArea);
     
     //wrong: Approach to understand public static
-     totalArea = 0.0 ;
-    for(int i =0; i<radiusList2.length; i++){
-      totalArea += abc(radiusList2[i]);
-    }
-      System.out.println("Approach to understand public static: " + totalArea);
+     //totalArea = 0.0 ;
+    //for(int i =0; i<radiusList2.length; i++){
+     // totalArea += abc(radiusList2[i]);
+    //}
+      //System.out.println("Approach to understand public static: " + totalArea);
 
       // Try encrypt 用下面return 計加密
       // input (parameters) ->"abc"
       String encrypted = encrypt("abc");
-      System.out.println(encrypted); // 
+      System.out.println(encrypted); // ÈÊÌ
 
       String original = decrypt(encrypted);
       System.out.println(original);// abc
@@ -50,23 +50,30 @@ public class DemoStaticMethod {
       // charAt("abc", 1)
 
       //Instance Method:
-      //"abc".charAt(0)  -> this is a Obj presentation
+      //"abc".charAt(0)  -> "abc" is an object, and "charAt()" is object
 
-      //System.out.println(charAt("abc", 1));//b
+       // presentation
+      System.out.println(charAt("abc", 1));//b
 
+    // Compiler knows which method the caller is referring during compile time.
+      System.out.println(sum(1, 2)); // (int, int)
 
-      //
-      System.out.println(sum(1,2));//
-      System.out.println(sum(1.3, 2.2));// if i change line 130 to float . during compile time, checked that there is no sum (double, double) -> compile error
+      //System.out.println(sum(1.3, 2.2));// if i change line 130 to float . during compile time, checked that there is no sum (double, double) -> compile error
       System.out.println(sum(1L , 2L));//
       System.out.println(sum((byte)1, (byte)2));//
       System.out.println(sum(1.2f , 8.8f));//
       System.out.println(sum(1,2,3));// (int, int , int)
+
+      double d1 = sum(1.2f, 2.0f); // float -> double
+      long l1 = sum(1.2f, 2.0f).longValue(); // float -> long
+  
+      // 10.longValue(); // NOT OK
+      new Integer(10).longValue(); // OK, longValue() -> instance method
+  
       print(5,6); // = sysout
 
       calculateCircleArea(3.0);
       calculateAreaForSquare(3.0);
-
 
 
 
@@ -94,6 +101,8 @@ public class DemoStaticMethod {
         for( int i =0 ; i <characters.length ; i++){
           sum += characters[i];
         }
+            // sum=17, result1 = 4, result2 = 1
+    return encrypted;
       }
 
   //Try to decrypt 解密
@@ -101,8 +110,9 @@ public class DemoStaticMethod {
     char[] characters = encrypted.toCharArray();
     String original ="";
     for(int i =0 ; i < characters.length ; i++){
-    
+      original += (char) (characters[i] / 2 - 3);
     }
+    return original;
 
   }
    
@@ -124,7 +134,7 @@ public class DemoStaticMethod {
     // return radius * radius * Math.PI;
     // pow(base, index) -> base ^ index
     return Math.pow(fg, 2.0) * Math.PI;
-    // fg都只係一個唔影響CODE既名, 黎2行可以當作一倨說明書. 
+    // fg都只係一個唔影響CODE既名, 黎2行可以當作一句說明書. 
     // 見line 31-35.跟本冇出現 fg.  但當 abc(obj), 即係用 obj去運算 return 既公式
   }
    
@@ -139,9 +149,12 @@ public class DemoStaticMethod {
     System.out.println("Method sum(int x, int y , int z)");
     return x+y+z;
   }
-  public static int sum(double x, double y){
+ // Method Signature
+  // sum(float x, float y) != sum(int x, int y)
+  public static Float sum(float x, float y) {
     System.out.println("Method sum(double x, double y)");
-    return (int) (x+y);
+    float result = x + y;
+    return new Float(result); // return Float object
   }
 
   // Return Type : Total 17 : primitives + wrapper + String
@@ -151,7 +164,9 @@ public class DemoStaticMethod {
     System.out.println("y= " +y);
   }
 
-  
+  public static char charAt(String s, int i) {
+    return s.charAt(i);
+  }
 
         // calculateSquareArea
         public static double calculateAreaForSquare(double length){

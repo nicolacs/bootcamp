@@ -43,7 +43,7 @@ public class DemoMathOperation{
     System.out.println(d2);// 2.0
 
     double d3 = (14.0 - 9.5) / 0.5 *3;
-    System.out.println(d3);// 27.0
+    System.out.println("d3 = " + d3);// 27.0
 
     double d4 = 10.0 % 3.5;
     System.out.println(d4);// 3.0
@@ -119,7 +119,7 @@ public class DemoMathOperation{
     int english = 78;
     int history = 62;
 
-    double averageScore = (maths + english + history) /3.0;
+    double averageScore = (maths + english + history) /3;
     // (int + int + int) / int
     // int / int
     // -> int
