@@ -36,7 +36,7 @@ public class DemoForLoop {
       // Example 2
       // We can use i for other purpose.
       for(int i = 0 ; i <6 ; i++){
-        System.out.println(i);
+        System.out.print(i);
       }
 
       //Example 3

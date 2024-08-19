@@ -1,10 +1,14 @@
 package customer;
 
+import java.math.BigDecimal;
+
 public class Item {
+  public static Object newItems;
   private double price;
   //private int quantity;
   private double discount;
   private String itemName;
+  private int quantity;
 
   // Constructor
   public Item(double price, double discount, String itemName){
@@ -21,6 +25,15 @@ public class Item {
   public void setPrice(double price){
     this.price = price;
   }
+
+  // BigDecimal (doube +-*% double, float....都必用BigDecimal)
+  public double subValue(){
+    BigDecimal total = BigDecimal.valueOf(0);
+    total = BigDecimal.valueOf(this.price).multiply(BigDecimal.valueOf(this.quantity));
+    // multiply() -> return a new Obj
+    return total.doubleValue();
+  }
+
   //public int getquantity(){
   //  return this.quantity;
   //}
