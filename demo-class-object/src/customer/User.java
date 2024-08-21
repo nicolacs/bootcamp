@@ -8,22 +8,31 @@ public class User {
   // Order 去present item
 
   // User input must be attributes, 一定要儲底客人俾既資料
-  private Order[]orders;
+  private Order[] orders; // Order[] object
   private String name;
   private String contact;
 
+  public User() {
+    this.orders = new Order[0];
+  }
   //public User(Order[] orders){
     //this.orders = orders;
   //}
-  public void add(Order order){
-    Order [] orders = new Order[this.orders.length +1];
-    for (int i=0 ; i< orders.length ; i++){
-      orders[i] = 
+  public void add(Order order) {
+    Order[] orders = new Order[this.orders.length + 1];
+    for (int i = 0; i < this.orders.length; i++) {
+      orders[i] = this.orders[i];
     }
+    orders[orders.length - 1] = order;
+    this.orders = orders;
   }
 
+  public void signUp() {
 
+  }
+  public void login() {
 
+  }
   public Order[] getOrders() {
     return this.orders;
 }
@@ -31,31 +40,36 @@ public class User {
   public boolean isVIP(){
     return this.totalTransactionAmount() >=100000;
   }
-
+  // Unit Test
 public double totalTransactionAmount(){       // 必須識, 輕鬆打
-  BigDecimal totalTran = BigDecimal.valueOf(0);
-  for ( int i=0 ; i < orders.length ; i++ ){
-    totalTran = totalTran.add(BigDecimal.valueOf(this.orders[i].subValue())); // Obj.add 等於 +=
+  BigDecimal total = BigDecimal.valueOf(0.0);
+  for (int i = 0; i < orders.length; i++) {
+    total = total.add(BigDecimal.valueOf(this.orders[i].totalValue())); //
   }
-  return totalTran.doubleValue();
+  return total.doubleValue();
 }
 
+public static void main(String[] args) {
+  User john = new User(); // User -> Order Array -> Order
 
+  john.totalTransactionAmount();
 
-
-  public String getName(){
-    return this.name;
-  }
-  public void setName(String name){
-    this.name = name;
-  }
-
-  public String getContact(){
-    return this.contact;
-  }
-  public void setContact(String contact){
-    this.contact = contact;
+  if (john.isVIP()) {
+  
   }
 
+//  public String getName(){
+//    return this.name;
+//  }
+//  public void setName(String name){
+//    this.name = name;
+//  }
 
+//  public String getContact(){
+//    return this.contact;
+//  }
+//  public void setContact(String contact){
+//    this.contact = contact;
+//  }
+  }
 }

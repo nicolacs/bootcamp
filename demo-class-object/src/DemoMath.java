@@ -47,6 +47,7 @@ public class DemoMath {
   //sqrt()
   int x =81;
   System.out.println("sqrt() : " + Math.sqrt(x));//9.0
+  System.out.println("square root of 80.0=" + Math.sqrt(80.0));// 除唔盡都可以用
 
   // Math.pow(double a, double b)
   double result = Math.pow(2.0, 3L);

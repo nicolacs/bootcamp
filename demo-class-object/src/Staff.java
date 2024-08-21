@@ -8,6 +8,7 @@ public class Staff {
   private double weight;
 
   // 2. empty constructor implicitly exists
+  // You can overwrite the old one
   public Staff() {
     System.out.println("Creating staff object...");
     this.salary = 20000; // 令起薪點by default 係20000.

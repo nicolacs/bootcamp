@@ -3,18 +3,16 @@ package customer;
 import java.math.BigDecimal;
 
 public class Item {
-  public static Object newItems;
+  //public static Object newItems;
   private double price;
-  //private int quantity;
+  private int quantity;
   private double discount;
   private String itemName;
-  private int quantity;
 
   // Constructor
-  public Item(double price, double discount, String itemName){
+  public Item(double price, int quantity) {
     this.price = price;
-    this.discount = discount;
-    this.itemName = itemName;
+    this.quantity = quantity;
   }
 
 
@@ -22,18 +20,33 @@ public class Item {
   public double getPrice(){
     return this.price;
   }
-  public void setPrice(double price){
-    this.price = price;
+
+  public int getQuantity() {
+    return this.quantity;
   }
 
   // BigDecimal (doube +-*% double, float....都必用BigDecimal)
-  public double subValue(){
+  // Not a must to use BigDecimal (double * int)
+  public double subtotal() {
+    // int * double -> 1.0 * 0.2
+    // double * double -> 0.1 * 0.2
     BigDecimal total = BigDecimal.valueOf(0);
-    total = BigDecimal.valueOf(this.price).multiply(BigDecimal.valueOf(this.quantity));
-    // multiply() -> return a new Obj
+    total = BigDecimal.valueOf(this.price) //
+        .multiply(BigDecimal.valueOf(this.quantity));
+    // multiply() -> return a new BigDecimal Object
     return total.doubleValue();
   }
 
+  public static void main(String[] args) {
+    int x = 2; // 2.0
+    double y = 0.2;
+    System.out.println(x * y);
+    System.out.println(x + y);
+    System.out.println(x - y);
+  }
+
+  
+  
   //public int getquantity(){
   //  return this.quantity;
   //}
