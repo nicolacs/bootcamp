@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Deck {
-  private static final Suit[] suits = new Suit[] {Suit.ofDiamond(),
-      Suit.ofClub(), Suit.ofHeart(), Suit.ofSpade()};
+  //private static final Suit[] suits = new Suit[] {Suit.ofDiamond(),
+    //  Suit.ofClub(), Suit.ofHeart(), Suit.ofSpade()};
 
   private static final Rank[] ranks = new Rank[] {Rank.ofACE(), Rank.ofTWO(),
       Rank.ofTHREE(), Rank.ofFOUR(), Rank.ofFIVE(), Rank.ofSIX(),
@@ -15,12 +15,12 @@ public class Deck {
   private Card[] cards;
   // 要避開NPE 空置針
   public Deck() {
-    this.cards = new Card[suits.length * ranks.length]; // !!! initialize empty array
+    this.cards = new Card[Suit2.length() * ranks.length]; // !!! initialize empty array
     // create 52 cards, and then puy it into Deck Object
     // for-each loop
     // 13 * 4
     int idx = 0;
-    for (Suit suit : suits) { // 4 times
+    for (Suit2 suit : Suit2.values()) { // 4 times
       for (Rank rank : ranks) { // 13 times
         this.cards[idx++] = new Card(rank, suit);
       }
@@ -50,7 +50,7 @@ public class Deck {
     // System.out.println(deck); // System.out.println(deck.toString());
     // ShuffleManager sm;
     for (int i = 0; i < 1000; i++) {
-      new ShuffleManager(deck.getCards()).shuffle();
+      new ShuffleManager(new SDeck(deck.getCards())).shuffle();
     }
     System.out.println(deck);//整個方法洗牌
     // sm.getCards(); // Manager -> Deck

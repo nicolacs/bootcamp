@@ -21,7 +21,8 @@ public class DemoStringBuilder {
      // 1. length()
      // 2. charAt()
      // 3. substring()
-     // etc ...
+     // 4. indexOf()
+     // etc ... no concat
      
     long startTime = System.currentTimeMillis(); //ms
     String s1 = "";
@@ -39,6 +40,11 @@ public class DemoStringBuilder {
     }
     afterTime= System.currentTimeMillis(); //ms
     System.out.println(afterTime - startTime); // 0 ms
+
+    String s2 = "hellolllollklll";
+    String s3 = s2.replace("lll" , "x"); // helloxollkx
+    System.out.println(s3);
+    System.out.println(s2.indexOf("lll")); // 5
 
 
 

@@ -76,6 +76,10 @@ public class Rank {
     return this.value;
   }
 
+  public boolean equals (Rank rank){
+    return this.value == rank.getValue();
+  }
+
   public int compareTo(Rank rank) {
     // Early return
     if (this.value != rank.getValue()) {
@@ -108,8 +112,8 @@ public class Rank {
     return 0;
   }
   public String toString(){
-    return "Rank (" 
-         + "value= " + this.value
+    return "Rank(" 
+         + "value=" + this.value
          + ")";
   }
 }

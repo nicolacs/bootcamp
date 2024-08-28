@@ -66,8 +66,8 @@ public class Suit {
     return this.value > suit.getValue() ? 1 : -1;
   }
   public String toString(){
-    return "Suit (" 
-         + "value= " + this.value
+    return "Suit(" 
+         + "value=" + this.value
          + ")";
   }
 
