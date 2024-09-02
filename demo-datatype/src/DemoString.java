@@ -77,7 +77,8 @@ public class DemoString {
     System.out.println(s10.length());//5
     System.out.println(s10.length()>=5); //int 5>= 5? -> true
 
-
+    String [] sarr = new Array.copyOf(s);
+    System.out.println(array.toString(s));
   }
   
 }

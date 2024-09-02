@@ -1,7 +1,6 @@
 package deck;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Deck {
   //private static final Suit[] suits = new Suit[] {Suit.ofDiamond(),

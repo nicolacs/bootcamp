@@ -6,22 +6,22 @@ public class Card {
 
   // String -> good presentation, built-in equals() & compareTo()
   // "01", "02", "09, "10", "JACK", "QUEEN", "KING"
-  private Rank rank;  // int vs char 諗下定咩TYPE先 將來邊個著數
+  private NewRank rank;  // int vs char 諗下定咩TYPE先 將來邊個著數
                     // A,2,3,4,5,6,7,8,9,T,J,Q,K
   private Suit2 suit; //  String 既話equals 等等要call method, int, char: 上面用char 避免都係用char
                       // Diamond, Club, Heart, Spade
                       
-       public Card(Rank rank, Suit2 suit) {
+       public Card(NewRank rank, Suit2 suit) {
         this.rank = rank;
          this.suit = suit;
    }
    
-  public static Card of(Rank rank, Suit2 suit) {
+  public static Card of(NewRank rank, Suit2 suit) {
     return new Card(rank, suit);
   }
   
 // get , set
-  public Rank getRank() {
+  public NewRank getRank() {
     return this.rank;
   }
 

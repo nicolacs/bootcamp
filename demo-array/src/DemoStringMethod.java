@@ -80,6 +80,8 @@ public class DemoStringMethod {
     String s10 = "  Vincent Lau";
     s10 = s10.trim();
     System.out.println(s10); // "Vincent Lau"
+    char[] apple = s10.toCharArray();
+    System.out.println(Arrays.toString(apple));
 
     // 錯誤示範 , 唔可以用 ==
     String s11 = "abc";

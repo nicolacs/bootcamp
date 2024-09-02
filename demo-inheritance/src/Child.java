@@ -32,6 +32,7 @@ public class Child extends Parent {
     super.sleep(); // "super" here is something like parent object address
   }
 
+  @Override
   public void sleep() {
     super.sleep();
     System.out.println("something else after super.sleep() ...");
@@ -61,5 +62,29 @@ public class Child extends Parent {
     System.out.println(c3.getAge()); // !!! 0, why?
 
     // We have attribute "age" in both child and parent class
+
+    //Chapter 14 - hiding
+    //Chapter 17 - Polymorphism
+    Child c = new Child(); //OK
+    Parent p = new Child(); // Also OK  !!!Child勁D, 勁既人可以著渣既人既衫, 攪到自己廢左
+                          //阿媽唔可以扮阿仔, 但阿仔可以扮阿媽
+    c.run();
+    c.sleep();
+
+    p.sleep();
+    // p.run(); // At compile-time, p cannot call run() method
+    // because the scope of object is determined by the type of object
+    // reference.
+
+    Child c4 = (Child) p; // safe
+    c4.run();
+    c4.sleep();
+
+    // On the other hand,
+    Parent p2 = new Parent(); 
+    if (p2 instanceof Child) { // avoid the error
+      Child c5 = (Child)p2; // p2係渣D既人, 渣既人著唔起勁既人既衫. -> runtime error
+      c5.run();
+    }
   }
 }

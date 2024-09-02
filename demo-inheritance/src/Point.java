@@ -24,18 +24,49 @@ public class Point {
       return false;
       Point point = (Point) obj;
       return Objects.equals(this.x, point.getX()) 
-      && Objects.equals(this.y, point.getY());
+          && Objects.equals(this.y, point.getY());
   }
+
+  @Override
+  public int hashCode(){
+    return Objects.hash(this.x, this.y);
+  }
+
+  @Override
+  public String toString() {
+    return "Point("//
+        + "x=" + this.x //
+        + ", y=" + this.y //
+        + ")";
+  }
+
+  // !!! Method Signature is Case Sensitive
+  // !!! but you should NOT design the method like this
+  // This is confusing when you call the method
+  // public int hashcode(){
+    public int hashcode() {
+      return -1;
+    }
+  
+    public String tostring() {
+      return "";
+    }
+
   public static void main(String[] args) {
     // before override equals(), it is false
-    System.out.println(new Point(1, 1).equals(new Point(1, 1)));// 
+    System.out.println(new Point(1, 1).equals(new Point(1, 1)));// true
 
+    // Create a person located at Point(1, 2)
     Person person = new Person(new Point(1, 2));
 
     // asking if the person located in Point (1,2)
     // I'm not asking if the point objects
     if (person.getPoint().equals(new Point(1, 2))); { //true
-      System.out.println("right");
+      System.out.println("this person is located at Point (1, 2)");
+    }
+
+    // alternative
+    if (person.getPoint().getX() == 1 || person.getPoint().getY() == 2) {
 
     }
   }
