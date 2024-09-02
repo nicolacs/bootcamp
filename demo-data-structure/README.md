@@ -8,12 +8,12 @@
 - CharSequence
   
 # ArrayList
-  - xxx.add()
+  - xxx.add(value)
   - xxx.set(place, value)
   - xxx.get()
   - xxx.remove(value) / xxx.removeAll()
   - xxx.size()
-  - xxx.contains() / xxx.containsAll()
+  - xxx.contains(value) / xxx.containsAll() ->return true / false
   - Arrays.asList( ,  , ...value )
   - xxx.isEmpty()
   - xxx.hashCode()

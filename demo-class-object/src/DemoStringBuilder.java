@@ -11,7 +11,7 @@ public class DemoStringBuilder {
      char last = sb.append("???").append("abc").charAt(sb.length() - 1);
      System.out.println(sb.toString()); // hello!!!???abc
      System.out.println(last); // c
-     System.out.println(sb.substring(1, 3)); // return a new String
+     System.out.println(sb.substring(1, 3)); // el , return a new String
      System.out.println(sb); // hello!!!???abc
 
      System.out.println(sb.reverse()); // return a new String -> cba???!!!olleh
@@ -46,8 +46,5 @@ public class DemoStringBuilder {
     System.out.println(s3);
     System.out.println(s2.indexOf("lll")); // 5
 
-
-
-  }
-  
+  } 
 }

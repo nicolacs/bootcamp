@@ -7,13 +7,13 @@ import java.util.List;
 public class DemoArrayList {
     public static void main(String[] args) {
         String[] arr = new String[]{"abc", "def", "ijk"};
-        System.out.println(arr.length); //3
-        arr[1] = "hello"; // similar set
+        System.out.println(arr.length); //3(get)
+        arr[1] = "hello"; // similar to (set)
         // 如果loop佢:
         for (String s : arr){
             System.out.print(s);
         }
-        System.out.println(arr[1]); // similar get()
+        System.out.println(arr[1]); // similar to get()
         // if we want to add one more String object to array object
         // you have to create another String array object, and then copy ....
         // so, array object is fixed length
@@ -39,8 +39,8 @@ public class DemoArrayList {
         System.out.println(strings.get(3)); // hello
 
         // 4. delete
-        //strings.remove("ijk");  // 就算係new String("ijk"), 都remove到. 背後
-        strings.remove(new String("ijk")); // !!! equals()
+        //strings.remove("ijk");  // 就算係new String("ijk"), 都remove到. 
+        strings.remove(new String("ijk")); // !!!因為背後係用 equals(), value岩就remove到
         System.out.println(strings); // ArrayList.toString() -> [abc, opq, hello] 
 
         ArrayList<Integer> integers = new ArrayList<Integer>();
@@ -91,17 +91,21 @@ public class DemoArrayList {
                      // checkIfContains.add(BigDecimal.valueOf(3.0));
                      // checkIfContains.add(BigDecimal.valueOf(3.5));
                      // decimals.containsAll(checkIfContains);
+                     //用4行整一個想check既value既array, 再用containsAll睇下目標OBJ有冇array入面既value
         //Approach 2:
         System.out.println(decimals.containsAll(
             Arrays.asList(BigDecimal.valueOf(3.0), BigDecimal.valueOf(3.5)))); // true
-    
+            // Now, 直接用.asList(value...)就可以一句攪掂
+
         // ArrayList<Number> is not the parent of ArrayList<Integer> 黎個叫generic, 用佢括著既野都唔會有parent / child relationship
         // ArrayList<Number> integers3 = new ArrayList<Integer>(); // compile error
 
          // but Number is the parent of Integer
-            Number n = new Integer(3); 
+            Number n = new Integer(3);
             Number[] numbers = new Integer[] {3, 7, 10}; //唔可以轉換一次, int > long is OK, int > long > LONG 唔OK
+            System.out.println("number1: " + Arrays.toString(numbers));
             numbers = new Long[] {3L, 7L, 10L}; // long -> Long
+            System.out.println("number: " + Arrays.toString(numbers));
 
               long[] arr10 = new long[] {3, 7, 10}; // int -> long
             //Long l1 = new Integer(10);  //Integer object has no relationship with Long object
