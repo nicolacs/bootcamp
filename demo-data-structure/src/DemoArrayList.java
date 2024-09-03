@@ -103,15 +103,12 @@ public class DemoArrayList {
          // but Number is the parent of Integer
             Number n = new Integer(3);
             Number[] numbers = new Integer[] {3, 7, 10}; //唔可以轉換一次, int > long is OK, int > long > LONG 唔OK
-            System.out.println("number1: " + Arrays.toString(numbers));
             numbers = new Long[] {3L, 7L, 10L}; // long -> Long
-            System.out.println("number: " + Arrays.toString(numbers));
 
-              long[] arr10 = new long[] {3, 7, 10}; // int -> long
+              long[] arr10 = new long[] {3, 7, 10}; // int -> long // 可自然升級
+              // L108  int -> long 係primitive, 可以promotion.  NOT int[] 同 long[]
             //Long l1 = new Integer(10);  //Integer object has no relationship with Long object
             // ^ Integer > int > long > Long OBJ  this is 垃圾
-        // 可自然升級
-        // L106  int -> long 係primitive, 可以promotion.  NOT int[] 同 long[]
 
         System.out.println(decimals.isEmpty()); // false
         System.out.println(decimals.size() == 0); // false // 同isEempty()同樣功能, 但唔好睇唔專業
@@ -124,11 +121,6 @@ public class DemoArrayList {
         if (!decimals.isEmpty()) {
 
         }
-
-        // for loop - ArrayList
-         for (int i = 0; i < decimals.size() - 1; i++) {
-        System.out.println(decimals.get(i) + ", " + decimals.get(i + 1));
-      }
   
         // for-each loop - ArrayList
          for (BigDecimal bd : decimals) {
