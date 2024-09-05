@@ -32,9 +32,29 @@ public class SBall implements Comparable<SBall>{
             return ball.getColor().getValue() < this.getColor().getValue()? 1:-1;
     }
 
-    //     return ball.getColor().getValue() < this.getColor().getValue()? 1:-1;
+    //!!! Vincent's Approach
+    // @Override
+    // public int compareTo(SBall ball) {
+    //   // this (John) -1, ball (Benny) 1
+    //   if (this.color == ball.getColor())
+    //     return this.name.compareTo(ball.getName()) > 0 ? -1 : 1;
+    //   // Different Color (Order: YELLOW -> GREEN -> RED)
+    //   if (this.color == Color.YELLOW || ball.getColor() == Color.RED)
+    //     return -1;
+    //   if (this.color == Color.RED || ball.getColor() == Color.YELLOW)
+    //     return 1;
+    //   if (this.color == Color.GREEN) {
+    //     if (ball.getColor() == Color.YELLOW)
+    //       return 1;
+    //     return -1;
+    //   }
+    //   if (ball.getColor() == Color.GREEN) {
+    //     if (this.color == Color.YELLOW)
+    //       return -1;
+    //     return 1;
+    //   }
+    //   return -1;
     // }
-    // if ((ball.getName().compareTo(this.getName())) == 1)
 
     @Override
     public String toString(){
@@ -52,7 +72,10 @@ public class SBall implements Comparable<SBall>{
     // i.e. SBall (Yellow, "John") -> SBall(Yellow, "Benny") -> SBall(Green, "Susan")
 
     public static void main(String[] args) {
-        List<SBall> S1 = new ArrayList<>();
+        List<SBall> S1 = new ArrayList<>();  //!!! You don't have to use new ArrayList OBJ for Collections.sort()
+        // As Collections.sort() doesn't use add(), remove() modification method.
+        // .asList() 背後係冇method的, 係OBJ黎, 可read 唔可以write
+        // 驚有野加既話, 直接用ArrayList都冇錯
         S1.add(new SBall(BallColor.GREEN, "AAA"));
         S1.add(new SBall(BallColor.YELLOW, "John"));
         S1.add(new SBall(BallColor.YELLOW, "Benny"));

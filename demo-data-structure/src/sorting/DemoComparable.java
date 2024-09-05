@@ -2,8 +2,13 @@ package sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import sorting.formula.BoxSortByIntAsc;
+import sorting.formula.BoxSortByIntDesc;
+import sorting.formula.BoxSorts;
 
 public class DemoComparable {
     @SuppressWarnings("unchecked")
@@ -27,8 +32,12 @@ public class DemoComparable {
 
         System.out.println(boxes); //[Box(value=100), Box(value=90), Box(value=3), Box(value=-7)]
 
-        // Comparator<Box>
-
+         // Comparator<Box>
+        System.out.println("Compartor<Box>:");
+        Collections.sort(boxes, BoxSorts.ofAsc()); // ascending
+        System.out.println(boxes); // [Box(value=-7), Box(value=3), Box(value=90), Box(value=100)]
+        Collections.sort(boxes, BoxSorts.ofDesc()); // descending
+        System.out.println(boxes); // [Box(value=100), Box(value=90), Box(value=3), Box(value=-7)] 
 
         List<Ball> balls = new ArrayList<>();
         balls.add(new Ball(Color.RED));

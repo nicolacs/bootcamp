@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -15,7 +18,7 @@ public class DemoPriorityQueue {
     pq.add("bac");
 
     // !!! The algorithm pick the first element at poll(), but not exactly a sorting.
-    // but ...  the actual ordering of this queue is ...
+    // but ... the actual ordering of this queue is ...
     System.out.println(pq.poll()); // aaa
 
     // Not yet sort completely
@@ -27,7 +30,12 @@ public class DemoPriorityQueue {
     // Custom order
     // Tips: Class for sorting (Comparator)
     // Queue<String> pq2 = new PriorityQueue<>(...);
-    
+    //Queue<String> pq2 = new PriorityQueue<>(new StringDesc());
+
+    // Person.class (name, age), is Elderly() //!!!Classwork, see /Person.java
+    // PriorityQueue, Elderly always goes first.
+
+
 
   }
 }

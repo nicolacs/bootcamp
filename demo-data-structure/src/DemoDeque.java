@@ -19,5 +19,7 @@ public class DemoDeque {
     System.out.println(strings); // [def, ijk, aaa]
     strings.removeLast(); 
     System.out.println(strings); // [def, ijk]
+
+    // !!! NOTE
   }
 }
