@@ -1,18 +1,21 @@
-## Getting Started
+### Array
+- Declare and initialize an array
+    - approach 1
+    String[] arr5 = new String[3];
+    - approach 2
+    String[] arr6 = new String[] {"abc", "def", "ijk"}; 
+    - approach 3
+    String[] arr7 = {"abc", "def", "ijk"};
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Method
+- Arrays.toString(OBJ)
+- Bubble Sort i L253 /DemoArray.java
+- Backup Array
+  -  int[] backupArray = Arrays.copyOf(arr21, arr21.length);
+- Swap
+  - char backup;
+    backup = arr9[0]; // 將 h 放入backup
+    arr9[0] = arr9[1]; // 將 a 覆蓋 [0]既h
+    arr9[1] = backup;
+- Print 2D Array
+  - Arrays.deepToString(2Darrname)

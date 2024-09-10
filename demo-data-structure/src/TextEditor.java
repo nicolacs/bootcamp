@@ -20,12 +20,12 @@ public class TextEditor {
     }
 
     public void undo(){
-        if (this.undoStack.isEmpty()){
-            this.redoStack.push(this.text);
+        if (!this.undoStack.isEmpty()){
+            this.redoStack.push(this.text);  //same as Vincent
+            this.text = this.undoStack.pop();//same as Vincent  
+        } else{
             System.out.println("Nothing to undo.");
         }
-        this.redoStack.push(this.text);
-        this.text = undoStack.pop();
        }
         // try{
         //     this.text = undoStack.pop();
@@ -33,14 +33,15 @@ public class TextEditor {
         //  catch (Exception e){
         //     System.out.println("Nothing to undo.");
         // }
-
         // if(redoStack != null && undoStack != null)
 
     public void redo(){
-        if (this.redoStack.isEmpty()){
+        if (!this.redoStack.isEmpty()){
+            this.undoStack.push(this.text); //missing
+            this.text = redoStack.pop();//same as Vincent
+        }else{
             System.out.println("Nothing to redo.");
         }
-        this.text = redoStack.pop();
     }
 
     @Override
@@ -52,20 +53,25 @@ public class TextEditor {
     editor.append("Hello");  // undoStack: "", this.text = Hello
     editor.append(" World"); // undoStack: "Hello", "", this.text = Hello World
     editor.append("!"); // undoStack: "Hello World", "Hello"  this.text = Hello World!
-    System.out.println(editor); // Hello World!
+    System.out.println("1: " + editor); // Hello World!
     editor.append("ABC");
-    System.out.println(editor); // Hello World!ABC
+    System.out.println("2: " + editor); // Hello World!ABC
     editor.undo();
     editor.undo();
     editor.undo();
+    System.out.println("3: " + editor);// Hello
     editor.undo();
     editor.undo();
-    editor.undo();
-    System.out.println(editor); // Hello 
+    System.out.println("4: " + editor); // Nothing to undo.
     editor.redo();
     editor.redo();
+    System.out.println("5: " + editor);
     editor.redo();
-    System.out.println(editor); // Hello World!
+    editor.redo();
+    System.out.println("6: " + editor); // Hello World!ABC
+    editor.redo();
+    editor.redo();
+    System.out.println("7: " + editor);
   }
 
 }

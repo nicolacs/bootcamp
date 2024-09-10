@@ -9,7 +9,7 @@ public class DemoHashMap {
         map.put(10, "Vincent");
         map.put(-20, "Jenny");
         // map.put(9, 10); // Wrong type of set value OBJ
-        System.out.println(map.size()); // 2
+        System.out.println(map.size()); // 2 entries
 
         System.out.println(map.get(-20)); // Jenny, Get Value OBJ
         System.out.println(map.get(-200)); // null
@@ -19,7 +19,6 @@ public class DemoHashMap {
             System.out.println(
                     "Key= " + entry.getKey() + " ,value= " + entry.getValue());
         }
-
         // ClassWork , by Person.class
         // Map<String, Person> personMap = new HashMap<>();
         // Key = Person's Name, Value = Person OBJ
@@ -93,6 +92,7 @@ public class DemoHashMap {
     }
     System.out.println("Sum of all Person's age=" + sum);
 
+    // 3 ways to do For Loop in Map
     // entrySet(), keySet(), values() -> For Loop
 
     System.out.println(personMap.size()); // 2
