@@ -1,4 +1,3 @@
-package staticnested;
 
 // !!! This example is to explain "static nested class"
 public class Outer {
