@@ -9,3 +9,6 @@ for-loop既時候 唔可以同時又ADD又REMOVE ->會亂
 -predicate
 -forEach
 -computeIfAbsent
+
+# Method Reference "::" 少用
+-refer to /DemoMethodReference

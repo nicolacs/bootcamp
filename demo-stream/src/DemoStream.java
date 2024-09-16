@@ -53,10 +53,10 @@ public class DemoStream {
 
         // filter() can work toether with map(), try:
         // 1. filter() before map()
-        List<String> filmap =
-                customers2.stream().filter(customer -> customer.getAge() > 18)
-                        .map(customer -> customer.getName())
-                        .collect(Collectors.toList());
+        List<String> filmap = customers2.stream()
+                .filter(customer -> customer.getAge() > 18)
+                .map(customer -> customer.getName())
+                .collect(Collectors.toList());
         System.out.println(filmap); //[Steven]
             // Vincent's example:
             List<Integer> ages = customers2.stream() //
@@ -66,10 +66,10 @@ public class DemoStream {
                 System.out.println(ages); // [20]
 
         // 2. map() before filter()
-        List<String> mapfil =
-                customers2.stream().map(customer -> customer.getName()) // Stream<String>
-                        .filter(name -> name.endsWith("en"))     // Stream<String>
-                        .collect(Collectors.toList());          // List<String>
+        List<String> mapfil = customers2.stream()
+                .map(customer -> customer.getName()) // Stream<String>
+                .filter(name -> name.endsWith("en"))     // Stream<String>
+                .collect(Collectors.toList());          // List<String>
         System.out.println(mapfil); //[Steven]
 
         // count()
@@ -79,6 +79,7 @@ public class DemoStream {
 
         // Stream OBJ -> mapToInt -> IntStream OBJ -> sum()
         int sumOfAges = customers2.stream() //
+            // you can filter here ...
             .mapToInt(c -> c.getAge())
             .sum();
         System.out.println(sumOfAges); // 38
@@ -100,5 +101,29 @@ public class DemoStream {
         Set<Integer> integerSet = integers.collect(Collectors.toSet());
         System.out.println(integerSet); // [1, 2, 3]
 
+        // FlatMap
+        List<Customer> customers5 = List.of( //
+                new Customer(20, "John", //
+        List.of(new Customer.Address("john1", "john2"),
+            new Customer.Address("john3", "john4"))),
+                new Customer(40, "Peter", //
+        List.of(new Customer.Address("peter1", "peter2"),
+            new Customer.Address("peter3", "peter4"))), //
+                new Customer(13, "Sally", //
+        List.of(new Customer.Address("sally1", "sally2"))) //
+        );
+
+        // List<Address>, which includes all addresses from all customers
+        // for loop
+
+        // stream -> flatmap
+        List<Customer.Address> addresses = customers5.stream() // Stream<Customer>
+        // !!! // flatMap(): input stream object, return Stream<Address>
+        .flatMap(c -> c.getAddresses().stream()).collect(Collectors.toList());
+
+        System.out.println(addresses);
+        // [Address(line1=john1, line2=john2), Address(line1=john3, line2=john4),
+        // Address(line1=peter1, line2=peter2), Address(line1=peter3, line2=peter4),
+        // Address(line1=sally1, line2=sally2)]
     }
 }

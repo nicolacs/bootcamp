@@ -9,10 +9,12 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class DemoLambdaFunction {
 
@@ -105,8 +107,11 @@ public class DemoLambdaFunction {
         // UnaryOperator<T> extends Function<T, T> // In同Out 一定要同一個type 
         // 其實唔用UnaryOperator 用下面Function寫返開都OK
         UnaryOperator<String> replaceSpaceByEmptyString = s -> s.replace(" ", "");
-        System.out.println
-        //!!! NOTE
+         System.out.println(replaceSpaceByEmptyString.apply("hello world !!!"));
+    // Alternative
+    Function<String, String> replaceSpaceByEmptyString2 =
+        s -> s.replace(" ", "");
+    System.out.println(replaceSpaceByEmptyString2.apply("hello world !!!"));
 
         BinaryOperator<String> firstCharacters = (s1, s2) -> {
             String result = "";

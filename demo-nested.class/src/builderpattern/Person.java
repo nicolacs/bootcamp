@@ -1,6 +1,7 @@
 public class Person {
     private String name;
     private int age;
+    private String gender;
     // You can add other public constructors if required.
 
     // Updated constructor from below to:
@@ -8,6 +9,10 @@ public class Person {
          this.name = name;
          this.age = age;
     }
+    public Person(String name, String gender){
+        this.name = name;
+        this.gender = gender;
+   }
     
      private Person(Builder builder){
         this.name = builder.name;
@@ -23,6 +28,10 @@ public class Person {
         return this.name;
     }
 
+    public String getGender(){
+        return this.gender;
+    }
+    
     public void setName(String name){
         this.name = name;
     }
@@ -33,6 +42,14 @@ public class Person {
 
     public void setAge(int age){
         this.age = age;
+    }
+
+    @Override
+    public String toString(){
+        return "Person("
+            +"Name= " + this.name
+            +",Age= " + this.age
+            +")";
     }
 
     public static class Builder{
