@@ -20,3 +20,4 @@
 - 就constructor, getter, setter都唔洗寫
   - 只會寫壞手勢, 少用
   -Support @Override
+- refer to/Person1 & /DemoRecord

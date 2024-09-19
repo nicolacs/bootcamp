@@ -10,8 +10,8 @@ public class DemoSwitchExpression {
       // default scenario
       String day = "Monday";
   
-      // !!! The range of String value is un-defined. So, we have to include
-      // "default scenario".
+      // !!! The range of "String value" is un-defined. So, we have to include
+      // !!! "default scenario".
       String result = switch (day) {
         case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" -> "Weekday";
         case "Saturday", "Sunday" -> "Weedend";

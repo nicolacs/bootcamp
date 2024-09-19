@@ -18,6 +18,12 @@ public class DemoThread {
     Thread thread2 = new Thread(task2);
     thread2.start(); // run()
 
+    // int y = 3;
+    //Thread thread3 = y > 3 ? new MyThread() : new MyThread2(); 
+    // //!!!Use Thread as Type as it is open-close coding style, which is better for futrue change
+    // Thread thread3 = new MyThread();
+    // thread3.start();
+
     // ! But we have one heap memory only (Process)
     System.out.println("main() method ends ...");
   }

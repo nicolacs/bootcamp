@@ -1,8 +1,21 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class DemoCounter {
     private static int counter =0;
 
     // counter++ -> non-atomic 可被入侵
     private static int counter2 =0;
+
+    // For Solution 1
+    private static int counter3 =0;
+
+    // For Solution 2
+  private static AtomicInteger counter4 = new AtomicInteger(0);
+
+  // !! this a private room allowing one thread at the same time.
+  public static synchronized void increment() {
+    counter3++;
+  }
 
     public static void main(String[] args) {
         // 2 threads (Share resource)
@@ -34,7 +47,7 @@ public class DemoCounter {
       System.out.println("Task 3 completed.");
     };
     Thread thread3 = new Thread(task3);
-    thread3.start();;
+    thread3.start();
     // task4
     Runnable task4 = () -> {
       for (int i = 0; i < 100000; i++) {
@@ -49,13 +62,49 @@ public class DemoCounter {
       // main thread is waiting ... for thread 3 & 4 complete
       thread3.join();
       thread4.join();
-      System.out.println(counter2); // 200000
+      System.out.println(counter2); // !!! 140990 (!= 200000)
     } catch (InterruptedException e) {
 
     }
-    // counter = 200000
-    System.out.println("Main Method ends ...");
+     // Solution 1: synchronized
+     Runnable task5 = () -> {
+      for (int i = 0; i < 100000; i++) {
+        DemoCounter.increment(); // ! synchronized -> "lock the increment()
+                                 // method"
+      }
+    };
+    Thread thread5 = new Thread(task5);
+    Thread thread6 = new Thread(task5);
+    thread5.start();
+    thread6.start();
+    try {
+      thread5.join();
+      thread6.join();
+    } catch (InterruptedException e) {
 
     }
-    
+    System.out.println(counter3); // 200000
+
+    // Solution 2: AtomicInteger
+    Runnable task6 = () -> {
+      for (int i = 0; i < 100000; i++) {
+        // ! Atomic Operation
+        counter4.incrementAndGet(); // similar to ++ operation
+      }
+    };
+    Thread thread7 = new Thread(task6);
+    Thread thread8 = new Thread(task6);
+    thread7.start();
+    thread8.start();
+    try {
+      thread7.join();
+      thread8.join();
+    } catch (InterruptedException e) {
+
+    }
+    System.out.println(counter4.get()); // 200000
+
+    System.out.println("Main Method ends ...");
+
+  }
 }
