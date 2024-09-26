@@ -21,10 +21,19 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString (exclude = "author") //or exclude a String[] (exclude = {"author", "price"})
-@EqualsAndHashCode
+@ToString (exclude = {"author", "price"}) //or exclude a String[] (exclude = {"author", "price"})
+@EqualsAndHashCode(exclude = "id")
 public class Book {
   private int id;
   private String author;
   private double price;
+
+  public static void main(String[] args) {
+    Book book = new Book(1, "John", 99.9);
+    System.out.println(book); // Book(id=1)
+
+    System.out
+        .println(new Book(1, "Peter", 10.5).equals(new Book(2, "Peter", 10.5)));
+    // true
+  }
 }

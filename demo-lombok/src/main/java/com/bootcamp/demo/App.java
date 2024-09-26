@@ -46,5 +46,12 @@ public static void main(String[] args) {
         .build();
     System.out.println(book3);
 
+    // equals()
+    // hashcode()
+
+    // toString()
+    // builder
+    // getter, setter
+    // constructor
   }
 }
