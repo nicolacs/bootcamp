@@ -102,3 +102,7 @@ WHERE : AND, OR, BETWEEN, EXISTS,IN, LIKE, (唔好用:ALL, ANY, NOT, SOME);
 
 # JOIN
 -只影響ROW
+
+### Week 10
+local host -> 127.0.0.1
+POP -> 

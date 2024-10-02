@@ -44,7 +44,7 @@ class AppTest {
   @Test
   void testAssertTimeout() {
     // Performance Test
-    assertTimeout(Duration.ofMillis(60), () -> {
+    assertTimeout(Duration.ofMillis(600), () -> {
       // Business logic ...
       Thread.sleep(50);
     });

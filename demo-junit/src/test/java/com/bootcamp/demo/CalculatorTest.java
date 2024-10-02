@@ -1,10 +1,11 @@
 package com.bootcamp.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 // file/class name suffix must be Test or Tests
-public class CalculatorTest {
+class CalculatorTest {
   // For Maven, @Test means one test case
   @Test
   void sum() {
@@ -20,5 +21,11 @@ public class CalculatorTest {
     assertEquals(10, Calculator.findMax(new int[] {10, -2, 9}));
     assertEquals(0, Calculator.findMax(new int[] {-100, -99, 0}));
     assertEquals(-1, Calculator.findMax(new int[] {-2, -3, -4})); // -1
+  }
+
+  @Test
+  void findMin() {
+    Calculator calculator = new Calculator(List.of(10, -2, 9));
+    assertEquals(-2, calculator.findMin());
   }
 }
