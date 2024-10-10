@@ -7,6 +7,7 @@ public class Bank {
 
 	public Bank() {
 		// complete the function
+		accounts = new LinkedHashMap<>();
 	}
 
 	public Account getAccount(Long accountNumber) {

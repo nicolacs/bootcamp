@@ -23,8 +23,9 @@ public abstract class Account {
 
 	public boolean validatePin(int attemptedPin) {
 		// complete the function
-		if attemptedPin == this.pin
+		if attemptedPin == this.pin{
 		return true;
+		}
 	}
 
 	public double getBalance() {
@@ -50,6 +51,9 @@ public abstract class Account {
 
 	public boolean debitAccount(double amount) {
 		// complete the function
-		return true;
+		if this.balance >= amount {
+			this.balance = BigDecimal.valueOf(amount).subtract(BigDecimal.valueOf(this.balance)).doubleValue; 
+			return true;
+		} return false;		
 	}
 }
